@@ -1,18 +1,24 @@
 package com.example.vgameapi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*SystemClock.sleep(200);
+        setTheme(R.style.Theme_VGameAPI);*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,5 +41,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FormFragment()).commit();
+
+        BottomNavigationView bottomNav = findViewById(R.id.main_menu);
+
+        bottomNav.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            switch (item.getItemId()){
+                case R.id.nav_home:
+                    selectedFragment = new FragmentHome();
+                    break;
+
+                case R.id.nav_list:
+                    selectedFragment = new ListFragment();
+                    break;
+
+                case R.id.nav_add:
+                    selectedFragment = new FormFragment();
+                    break;
+            }
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+
+            return true;
+        });
+
     }
 }
