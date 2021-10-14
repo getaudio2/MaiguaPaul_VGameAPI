@@ -3,6 +3,7 @@ package com.example.vgameapi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -28,44 +29,24 @@ public class MainActivity extends AppCompatActivity {
         EditText txtPassword = findViewById(R.id.txtPassword);
         TextView lblLoginResult = findViewById(R.id.lblLoginResult);
 
+        Intent intent = new Intent(this, MainMenu.class);
+
         //If login button is clicked, lblLoginResult text will show if login succeeded or not
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //Login will fail if the password equals to "1234"
-                if (txtPassword.getText().toString().equals("1234")) {
-                    lblLoginResult.setText("Login not ok");
-                    Log.i("Test","Login not ok");
+                if (txtUsername.getText().toString().equals("1234") && txtPassword.getText().toString().equals("1234")) {
+                    lblLoginResult.setText("Login OK");
+                    Log.i("Test","Login OK");
+                    startActivity(intent);
                 } else {
-                    lblLoginResult.setText("Login ok");
-                    Log.i("Test","Login ok");
+                    lblLoginResult.setText("Login KO");
+                    Log.i("Test","Login KO");
                 }
             }
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FormFragment()).commit();
 
-        BottomNavigationView bottomNav = findViewById(R.id.main_menu);
-
-        bottomNav.setOnItemSelectedListener(item -> {
-            Fragment selectedFragment = null;
-            switch (item.getItemId()){
-                case R.id.nav_home:
-                    selectedFragment = new FragmentHome();
-                    break;
-
-                case R.id.nav_list:
-                    selectedFragment = new ListFragment();
-                    break;
-
-                case R.id.nav_add:
-                    selectedFragment = new FormFragment();
-                    break;
-            }
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-
-            return true;
-        });
 
     }
 }
