@@ -13,8 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vgameapi.DB.ContactsDBHelper;
+import com.example.vgameapi.Model.Contact;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,10 +25,16 @@ import java.util.ArrayList;
  */
 public class ListFragment extends Fragment {
 
+    private ContactsDBHelper dbHelper;
+    private SQLiteDatabase db;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    // Contacts list
+    List<Contact> contacts;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -73,7 +81,10 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         // Inflate the layout for this fragment
         ArrayList<String> array_noms = new ArrayList<String>();
-        array_noms.add("FPS ('Shooter en primera persona')");
+        contacts = new ArrayList<Contact>();
+        contacts = dbHelper.retrieveContacts(db);
+
+        /*array_noms.add("FPS ('Shooter en primera persona')");
         array_noms.add("Puzzle");
         array_noms.add("Visual Novel");
         array_noms.add("2D Fighter");
@@ -82,7 +93,7 @@ public class ListFragment extends Fragment {
         array_noms.add("Adventure");
         array_noms.add("Platformer");
         array_noms.add("Sandbox");
-        array_noms.add("MMORPG");
+        array_noms.add("MMORPG");*/
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_noms);
