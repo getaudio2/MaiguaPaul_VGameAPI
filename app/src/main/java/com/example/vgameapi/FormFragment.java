@@ -1,5 +1,6 @@
 package com.example.vgameapi;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.vgameapi.DB.ContactsDBHelper;
+import com.example.vgameapi.Model.Contact;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +20,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FormFragment extends Fragment {
+
+    private ContactsDBHelper dbHelper;
+    private SQLiteDatabase db;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +68,18 @@ public class FormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_form, container, false);
+        View view = inflater.inflate(R.layout.fragment_form, container, false);
+
+        EditText name = view.findViewById(R.id.contactName);
+        Button button = view.findViewById(R.id.saveContact);
+
+        button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Contact contact = new Contact(name.getText().toString());
+                dbHelper.insertContact(db, contact);
+            }
+        });
+
+        return view;
     }
 }
