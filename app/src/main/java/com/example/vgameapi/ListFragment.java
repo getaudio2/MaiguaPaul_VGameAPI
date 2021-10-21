@@ -1,5 +1,6 @@
 package com.example.vgameapi;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.vgameapi.DB.ContactsDBHelper;
 
 import java.util.ArrayList;
 
@@ -31,6 +34,10 @@ public class ListFragment extends Fragment {
 
     public ListFragment() {
         // Required empty public constructor
+    }
+
+    public ListFragment(ContactsDBHelper dbHelper, SQLiteDatabase db) {
+
     }
 
     /**

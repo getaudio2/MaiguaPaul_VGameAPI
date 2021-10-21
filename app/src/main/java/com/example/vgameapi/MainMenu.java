@@ -3,16 +3,24 @@ package com.example.vgameapi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import com.example.vgameapi.DB.ContactsDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainMenu extends AppCompatActivity {
+
+    private ContactsDBHelper dbHelper;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        dbHelper = new ContactsDBHelper(this);
+        db = dbHelper.getWritableDatabase();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FormFragment()).commit();
 
@@ -26,11 +34,11 @@ public class MainMenu extends AppCompatActivity {
                     break;
 
                 case R.id.nav_list:
-                    selectedFragment = new ListFragment();
+                    selectedFragment = new ListFragment(dbHelper, db);
                     break;
 
                 case R.id.nav_add:
-                    selectedFragment = new FormFragment();
+                    selectedFragment = new FormFragment(dbHelper, db);
                     break;
             }
 

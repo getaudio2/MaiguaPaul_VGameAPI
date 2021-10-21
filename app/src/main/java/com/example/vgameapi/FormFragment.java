@@ -36,6 +36,10 @@ public class FormFragment extends Fragment {
     public FormFragment() {
         // Required empty public constructor
     }
+    public FormFragment(ContactsDBHelper dbHelper, SQLiteDatabase db) {
+        this.dbHelper = dbHelper;
+        this.db = db;
+    }
 
     /**
      * Use this factory method to create a new instance of
