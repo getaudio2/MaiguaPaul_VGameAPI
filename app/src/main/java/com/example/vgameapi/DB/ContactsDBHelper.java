@@ -49,30 +49,9 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
         }
     }
 
-    /*public void showContact(SQLiteDatabase db) {
-        ArrayList<String> contacts = new ArrayList();
-
-
-        if (db.isOpen()){
-            String sql = "select * from " + ContactsEntry.TABLE_NAME;
-            Cursor cursor = db.rawQuery(sql, null);
-
-            if (cursor.moveToFirst()) {
-                do {
-                    Contact contact = new Contact();
-                    contact.setNom(cursor.getString(cursor.getColumnIndex(contact.nom)));
-                    contacts.add(contact);
-                } while (cursor.moveToNext());
-            }
-
-        }else{
-            Log.i("sql","Database is closed");
-        }
-    }*/
-
-    /*@SuppressLint("Range")
-    public void showContact(SQLiteDatabase db) {
-        List<Contact> data = new ArrayList<>();
+    @SuppressLint("Range")
+    public List<Contact> retrieveContacts(SQLiteDatabase db) {
+        List<Contact> contacts = new ArrayList<>();
 
         // Select All Query
         String selectQuery = "SELECT * FROM " + ContactsEntry.TABLE_NAME;
@@ -83,10 +62,10 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Log.i("sql", cursor.getString(cursor.getColumnIndex("nom")));
+                Contact contact = new Contact(cursor.getString(cursor.getColumnIndex("name")));
+                contacts.add(contact);
             } while (cursor.moveToNext());
         }
-
-        db.close();
-    }*/
+        return contacts;
+    }
 }

@@ -75,9 +75,9 @@ public class FormFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_form, container, false);
 
         EditText name = view.findViewById(R.id.contactName);
-        Button button = view.findViewById(R.id.saveContact);
+        Button buttonSave = view.findViewById(R.id.saveContact);
 
-        button.setOnClickListener(new View.OnClickListener(){
+        buttonSave.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Contact contact = new Contact(name.getText().toString());
                 dbHelper.insertContact(db, contact);
