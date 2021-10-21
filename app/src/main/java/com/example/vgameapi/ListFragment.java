@@ -84,6 +84,10 @@ public class ListFragment extends Fragment {
         contacts = new ArrayList<Contact>();
         contacts = dbHelper.retrieveContacts(db);
 
+        for (Contact contact: contacts) {
+            array_noms.add(contact.getNom());
+        }
+
         /*array_noms.add("FPS ('Shooter en primera persona')");
         array_noms.add("Puzzle");
         array_noms.add("Visual Novel");
