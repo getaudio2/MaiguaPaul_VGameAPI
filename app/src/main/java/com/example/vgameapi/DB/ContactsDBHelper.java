@@ -68,4 +68,8 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
         }
         return contacts;
     }
+
+    public void deleteDatabase(SQLiteDatabase db) {
+        this.deleteDatabase(db);
+    }
 }
