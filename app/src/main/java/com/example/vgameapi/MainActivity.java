@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         //If login button is clicked, lblLoginResult text will show if login succeeded or not
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //Login will fail if the password equals to "1234"
-                if (txtUsername.getText().toString().equals("1234") && txtPassword.getText().toString().equals("1234")) {
+                //Login will succeed if the username and password equal to "admin"
+                if (txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin")) {
                     lblLoginResult.setText("Login OK");
                     Log.i("Test","Login OK");
                     startActivity(intent);
