@@ -45,7 +45,8 @@ public class ListFragment extends Fragment {
     }
 
     public ListFragment(ContactsDBHelper dbHelper, SQLiteDatabase db) {
-
+        this.dbHelper = dbHelper;
+        this.db = db;
     }
 
     /**
@@ -88,7 +89,7 @@ public class ListFragment extends Fragment {
             array_noms.add(contact.getNom());
         }
 
-        /*array_noms.add("FPS ('Shooter en primera persona')");
+        array_noms.add("FPS ('Shooter en primera persona')");
         array_noms.add("Puzzle");
         array_noms.add("Visual Novel");
         array_noms.add("2D Fighter");
@@ -97,7 +98,7 @@ public class ListFragment extends Fragment {
         array_noms.add("Adventure");
         array_noms.add("Platformer");
         array_noms.add("Sandbox");
-        array_noms.add("MMORPG");*/
+        array_noms.add("MMORPG");
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_noms);

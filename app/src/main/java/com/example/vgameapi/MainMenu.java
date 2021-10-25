@@ -22,7 +22,7 @@ public class MainMenu extends AppCompatActivity {
         dbHelper = new ContactsDBHelper(this);
         db = dbHelper.getWritableDatabase();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FormFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
 
         BottomNavigationView bottomNav = findViewById(R.id.main_menu);
 
