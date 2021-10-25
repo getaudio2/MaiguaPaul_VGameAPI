@@ -30,7 +30,7 @@ public class MainMenu extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()){
                 case R.id.nav_home:
-                    selectedFragment = new FragmentHome();
+                    selectedFragment = new FragmentHome(dbHelper, db);
                     break;
 
                 case R.id.nav_list:

@@ -37,6 +37,11 @@ public class FragmentHome extends Fragment {
         // Required empty public constructor
     }
 
+    public FragmentHome(ContactsDBHelper dbHelper, SQLiteDatabase db) {
+        this.dbHelper = dbHelper;
+        this.db = db;
+    }
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.

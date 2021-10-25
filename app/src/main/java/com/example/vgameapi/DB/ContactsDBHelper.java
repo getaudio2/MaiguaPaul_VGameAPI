@@ -70,6 +70,7 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
     }
 
     public void deleteDatabase(SQLiteDatabase db) {
-        this.deleteDatabase(db);
+        db.execSQL("delete from "+ ContactsEntry.TABLE_NAME);
+        db.close();
     }
 }
