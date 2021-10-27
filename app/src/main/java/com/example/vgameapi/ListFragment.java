@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.vgameapi.DB.ContactsDBHelper;
+import com.example.vgameapi.DB.GamesDBHelper;
 import com.example.vgameapi.Model.Game;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class ListFragment extends Fragment {
 
-    private ContactsDBHelper dbHelper;
+    private GamesDBHelper dbHelper;
     private SQLiteDatabase db;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -44,7 +44,7 @@ public class ListFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public ListFragment(ContactsDBHelper dbHelper, SQLiteDatabase db) {
+    public ListFragment(GamesDBHelper dbHelper, SQLiteDatabase db) {
         this.dbHelper = dbHelper;
         this.db = db;
     }

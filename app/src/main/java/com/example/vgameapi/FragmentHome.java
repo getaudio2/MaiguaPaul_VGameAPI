@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.vgameapi.DB.ContactsDBHelper;
+import com.example.vgameapi.DB.GamesDBHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +19,7 @@ import com.example.vgameapi.DB.ContactsDBHelper;
  */
 public class FragmentHome extends Fragment {
 
-    private ContactsDBHelper dbHelper;
+    private GamesDBHelper dbHelper;
     private SQLiteDatabase db;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +35,7 @@ public class FragmentHome extends Fragment {
         // Required empty public constructor
     }
 
-    public FragmentHome(ContactsDBHelper dbHelper, SQLiteDatabase db) {
+    public FragmentHome(GamesDBHelper dbHelper, SQLiteDatabase db) {
         this.dbHelper = dbHelper;
         this.db = db;
     }

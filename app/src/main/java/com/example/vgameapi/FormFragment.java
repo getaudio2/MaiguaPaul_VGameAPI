@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.vgameapi.DB.ContactsDBHelper;
+import com.example.vgameapi.DB.GamesDBHelper;
 import com.example.vgameapi.Model.Game;
 
 /**
@@ -21,7 +21,7 @@ import com.example.vgameapi.Model.Game;
  */
 public class FormFragment extends Fragment {
 
-    private ContactsDBHelper dbHelper;
+    private GamesDBHelper dbHelper;
     private SQLiteDatabase db;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -36,7 +36,7 @@ public class FormFragment extends Fragment {
     public FormFragment() {
         // Required empty public constructor
     }
-    public FormFragment(ContactsDBHelper dbHelper, SQLiteDatabase db) {
+    public FormFragment(GamesDBHelper dbHelper, SQLiteDatabase db) {
         this.dbHelper = dbHelper;
         this.db = db;
     }

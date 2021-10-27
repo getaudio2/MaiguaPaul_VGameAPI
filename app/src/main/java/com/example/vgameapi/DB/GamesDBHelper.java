@@ -8,19 +8,19 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.vgameapi.DB.ContactsContract.*;
+import com.example.vgameapi.DB.GamesContract.*;
 import com.example.vgameapi.Model.Game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactsDBHelper extends SQLiteOpenHelper {
+public class GamesDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "contacts.db";
 
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + ContactsEntry.TABLE_NAME + "(" + ContactsEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ContactsEntry.COLUMN_NAME_TITLE + " TEXT)";
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + GamesEntry.TABLE_NAME + "(" + GamesEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GamesEntry.COLUMN_NAME_TITLE + " TEXT)";
 
-    public ContactsDBHelper(Context context) {
+    public GamesDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -30,7 +30,7 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
     }
 
@@ -41,9 +41,9 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
 
             //Insert the incidence getting all values
-            values.put(ContactsEntry.COLUMN_NAME_TITLE, g.getNom());
+            values.put(GamesEntry.COLUMN_NAME_TITLE, g.getNom());
 
-            db.insert(ContactsEntry.TABLE_NAME, null, values);
+            db.insert(GamesEntry.TABLE_NAME, null, values);
         }else{
             Log.i("sql","Database is closed");
         }
@@ -54,7 +54,7 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
         List<Game> games = new ArrayList<>();
 
         // Select All Query
-        String selectQuery = "SELECT * FROM " + ContactsEntry.TABLE_NAME;
+        String selectQuery = "SELECT * FROM " + GamesEntry.TABLE_NAME;
 
         db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -70,6 +70,6 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
     }
 
     public void deleteDatabase(SQLiteDatabase db) {
-        db.execSQL("DELETE FROM "+ ContactsEntry.TABLE_NAME);
+        db.execSQL("DELETE FROM "+ GamesEntry.TABLE_NAME);
     }
 }

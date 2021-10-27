@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.example.vgameapi.DB.ContactsDBHelper;
+import com.example.vgameapi.DB.GamesDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainMenu extends AppCompatActivity {
 
-    private ContactsDBHelper dbHelper;
+    private GamesDBHelper dbHelper;
     private SQLiteDatabase db;
 
     @Override
@@ -19,7 +19,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        dbHelper = new ContactsDBHelper(this);
+        dbHelper = new GamesDBHelper(this);
         db = dbHelper.getWritableDatabase();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
