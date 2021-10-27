@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vgameapi.DB.ContactsDBHelper;
-import com.example.vgameapi.Model.Contact;
+import com.example.vgameapi.Model.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class ListFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // Contacts list
-    List<Contact> contacts;
+    List<Game> games;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -82,11 +82,11 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         // Inflate the layout for this fragment
         ArrayList<String> array_noms = new ArrayList<String>();
-        contacts = new ArrayList<Contact>();
-        contacts = dbHelper.retrieveContacts(db);
+        games = new ArrayList<Game>();
+        games = dbHelper.retrieveContacts(db);
 
-        for (Contact contact: contacts) {
-            array_noms.add(contact.getNom());
+        for (Game game : games) {
+            array_noms.add(game.getNom());
         }
 
         array_noms.add("FPS ('Shooter en primera persona')");

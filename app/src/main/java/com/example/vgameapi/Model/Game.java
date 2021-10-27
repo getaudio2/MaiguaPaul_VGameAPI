@@ -1,10 +1,10 @@
 package com.example.vgameapi.Model;
 
-public class Contact {
+public class Game {
 
     public String nom;
 
-    public Contact(String nom) {
+    public Game(String nom) {
         this.nom = nom;
     }
 

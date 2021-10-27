@@ -9,10 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.vgameapi.DB.ContactsDBHelper;
-import com.example.vgameapi.Model.Contact;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.vgameapi.DB.ContactsDBHelper;
-import com.example.vgameapi.Model.Contact;
+import com.example.vgameapi.Model.Game;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,8 +79,8 @@ public class FormFragment extends Fragment {
 
         buttonSave.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                Contact contact = new Contact(name.getText().toString());
-                dbHelper.insertContact(db, contact);
+                Game game = new Game(name.getText().toString());
+                dbHelper.insertContact(db, game);
             }
         });
 

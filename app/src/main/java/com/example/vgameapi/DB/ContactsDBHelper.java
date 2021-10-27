@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.vgameapi.DB.ContactsContract.*;
-import com.example.vgameapi.Model.Contact;
+import com.example.vgameapi.Model.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,14 +34,14 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertContact(SQLiteDatabase db, Contact c){
+    public void insertContact(SQLiteDatabase db, Game g){
         //Check the bd is open
         if (db.isOpen()){
             //Creation of the register for insert object with the content values
             ContentValues values = new ContentValues();
 
             //Insert the incidence getting all values
-            values.put(ContactsEntry.COLUMN_NAME_TITLE, c.getNom());
+            values.put(ContactsEntry.COLUMN_NAME_TITLE, g.getNom());
 
             db.insert(ContactsEntry.TABLE_NAME, null, values);
         }else{
@@ -50,8 +50,8 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public List<Contact> retrieveContacts(SQLiteDatabase db) {
-        List<Contact> contacts = new ArrayList<>();
+    public List<Game> retrieveContacts(SQLiteDatabase db) {
+        List<Game> games = new ArrayList<>();
 
         // Select All Query
         String selectQuery = "SELECT * FROM " + ContactsEntry.TABLE_NAME;
@@ -62,15 +62,14 @@ public class ContactsDBHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Contact contact = new Contact(cursor.getString(cursor.getColumnIndex("name")));
-                contacts.add(contact);
+                Game game = new Game(cursor.getString(cursor.getColumnIndex("name")));
+                games.add(game);
             } while (cursor.moveToNext());
         }
-        return contacts;
+        return games;
     }
 
     public void deleteDatabase(SQLiteDatabase db) {
-        db.execSQL("delete from "+ ContactsEntry.TABLE_NAME);
-        db.close();
+        db.execSQL("DELETE FROM "+ ContactsEntry.TABLE_NAME);
     }
 }
