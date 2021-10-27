@@ -34,7 +34,7 @@ public class GamesDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertContact(SQLiteDatabase db, Game g){
+    public void insertGame(SQLiteDatabase db, Game g){
         //Check the bd is open
         if (db.isOpen()){
             //Creation of the register for insert object with the content values
@@ -50,7 +50,7 @@ public class GamesDBHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public List<Game> retrieveContacts(SQLiteDatabase db) {
+    public List<Game> retrieveGames(SQLiteDatabase db) {
         List<Game> games = new ArrayList<>();
 
         // Select All Query

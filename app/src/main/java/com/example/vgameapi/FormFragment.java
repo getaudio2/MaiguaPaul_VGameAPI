@@ -80,7 +80,7 @@ public class FormFragment extends Fragment {
         buttonSave.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Game game = new Game(name.getText().toString());
-                dbHelper.insertContact(db, game);
+                dbHelper.insertGame(db, game);
             }
         });
 

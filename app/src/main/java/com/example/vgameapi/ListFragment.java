@@ -83,7 +83,7 @@ public class ListFragment extends Fragment {
         // Inflate the layout for this fragment
         ArrayList<String> array_noms = new ArrayList<String>();
         games = new ArrayList<Game>();
-        games = dbHelper.retrieveContacts(db);
+        games = dbHelper.retrieveGames(db);
 
         for (Game game : games) {
             array_noms.add(game.getNom());
