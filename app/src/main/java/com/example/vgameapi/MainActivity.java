@@ -1,8 +1,10 @@
 package com.example.vgameapi;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         EditText txtUsername = findViewById(R.id.txtUsername);
         EditText txtPassword = findViewById(R.id.txtPassword);
-        TextView lblLoginResult = findViewById(R.id.lblLoginResult);
 
         Intent intent = new Intent(this, MainMenu.class);
 
@@ -36,12 +38,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Login will succeed if the username and password equal to "admin"
                 if (txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin")) {
-                    lblLoginResult.setText("Login OK");
-                    Log.i("Test","Login OK");
+                    Toast.makeText(getApplicationContext(), "Login OK", Toast.LENGTH_LONG).show();
                     startActivity(intent);
                 } else {
-                    lblLoginResult.setText("Login KO");
-                    Log.i("Test","Login KO");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                    builder.setTitle("Login failed");
+                    builder.setMessage("The username or password you entered is incorrect.")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //OK METHOD
+                                }
+                            });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             }
         });
