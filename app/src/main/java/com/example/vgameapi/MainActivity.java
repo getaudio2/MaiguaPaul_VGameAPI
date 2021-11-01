@@ -41,16 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Login OK", Toast.LENGTH_LONG).show();
                     startActivity(intent);
                 } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                    builder.setTitle("Login failed");
-                    builder.setMessage("The username or password you entered is incorrect.")
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //OK METHOD
-                                }
-                            });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    Toast.makeText(getApplicationContext(), "Login KO", Toast.LENGTH_LONG).show();
                 }
             }
         });

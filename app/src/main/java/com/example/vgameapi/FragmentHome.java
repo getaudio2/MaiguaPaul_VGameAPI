@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.vgameapi.DB.GamesDBHelper;
 
@@ -78,6 +79,7 @@ public class FragmentHome extends Fragment {
         btnDelete.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 dbHelper.deleteDatabase(db);
+                Toast.makeText(getContext(), "DB games deleted OK", Toast.LENGTH_LONG).show();
             }
         });
 

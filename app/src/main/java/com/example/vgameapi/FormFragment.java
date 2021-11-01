@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.vgameapi.DB.GamesDBHelper;
 import com.example.vgameapi.Model.Game;
@@ -81,6 +82,7 @@ public class FormFragment extends Fragment {
             public void onClick(View view) {
                 Game game = new Game(name.getText().toString());
                 dbHelper.insertGame(db, game);
+                Toast.makeText(getContext(), "Game added OK", Toast.LENGTH_LONG).show();
             }
         });
 
