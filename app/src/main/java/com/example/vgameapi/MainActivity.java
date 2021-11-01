@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*SystemClock.sleep(200);
-        setTheme(R.style.Theme_VGameAPI);*/
+        SystemClock.sleep(200);
+        setTheme(R.style.Theme_VGameAPI);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
