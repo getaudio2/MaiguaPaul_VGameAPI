@@ -10,13 +10,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="221dp"
+            android:layout_height="68dp"
+            android:text="Afegeix un joc"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/contactName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.629" />
+
         <EditText
             android:id="@+id/contactName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="292dp"
             android:ems="10"
+            android:textColor="@color/white"
+            android:hint="Name"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:textColorHint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,10 +41,12 @@
             android:id="@+id/saveContact"
             android:layout_width="201dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="37dp"
             android:text="Afegir"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contactName" />
+            app:layout_constraintTop_toBottomOf="@+id/contactName"
+            app:layout_constraintVertical_bias="0.28" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
