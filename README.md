@@ -6,3 +6,9 @@ In my project you'll be able to:
 * Add elements (game genres names) to a local database
 * See all the database elements inside a list
 * Delete all the elements from the database
+## Technologies
+This project is developed with android studio and java. I've used this extra classes:
+* SQLiteDatabase: for the local storage.
+* Fragment Manager: to add/access the different fragments for each task.
+* Recycler View: to show the items in the DB ordered in a list.
+* Toast: to show a text message confirming that the task has been performed correctly.
