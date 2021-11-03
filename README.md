@@ -12,3 +12,11 @@ This project is developed with android studio and java. I've used this extra cla
 * Fragment Manager: to add/access the different fragments for each task.
 * Recycler View: to show the items in the DB ordered in a list.
 * Toast: to show a text message confirming that the task has been performed correctly.
+## Extra information
+### Access:
+* Username: admin
+* Password: admin
+### Colors used:
+Purple_500 (#6200EE), purple_700 (#3700B3) and white (#FFFFFF).
+### Logo:
+Controller.png image from assets_studio.
