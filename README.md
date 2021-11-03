@@ -10,6 +10,19 @@ In my project you'll be able to:
 ### Login
 The login section of the app is done through the main activity.\
 ![Login screen](/images/login_screen.png)
+### Splash screen
+This is the splash screen with the app logo that shows 2 seconds before the app starts.\
+![Splash screen](/images/splash_screen.png)
+### Home screen
+The home section is a fragment which only shows a delete button for the DB.\
+There's also the bottom navigation, which allows the user to navigate through all sections of the app.\
+![Home screen](/images/home_screen.png)
+### List screen
+The list screen displays the list of items with the elements from the database.\
+![List screen](/images/list_screen.png)
+### Add screen
+The add screen has an EditText to enter the name of a game genre and add it to the DB.\
+![Add screen](/images/add_screen.png)
 ## Technologies
 This project is developed with android studio and java. I've used this extra classes:
 * SQLiteDatabase: for the local storage.
