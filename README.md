@@ -1,4 +1,5 @@
 # MaiguaPaul_VGameAPI
+This project is about the development of an android app named "VGameAPI", which serves as a database for storing game genres information.
 ## LOGIN Development
 
 ### LOGIN elements
