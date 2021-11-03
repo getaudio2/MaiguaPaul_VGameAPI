@@ -41,3 +41,13 @@ Controller.png image from assets_studio.\
 ### Errors:
 - The delete button from the home screen crashes the app due to the DB not created yet after the login. The DB is created after choosing another screen.
 - The delete button doesn't delete the default items in the list. This is because they're not inserted into the database.
+## Finished / Unfinished tasks
+- [x] Splash Screen
+- [x] Bottom Navigation
+- [x] Local Storage SQLite
+- [x] Login
+- [x] Add form
+- [x] Recycler list
+- [x] Database methods
+- [x] Delete all data + dialog
+- [x] Screens colors with Theme.xml 
