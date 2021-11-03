@@ -8,8 +8,8 @@ In my project you'll be able to:
 * Delete all the elements from the database
 ## Screenshots
 ### Login
-The login section of the app is done through the main activity.
-![This is an image](/images/loginscreen.png)
+The login section of the app is done through the main activity.\
+![Login screen](/images/login_screen.png)
 ## Technologies
 This project is developed with android studio and java. I've used this extra classes:
 * SQLiteDatabase: for the local storage.
