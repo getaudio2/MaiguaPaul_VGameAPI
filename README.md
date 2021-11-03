@@ -37,3 +37,4 @@ This project is developed with android studio and java. I've used this extra cla
 Purple_500 (#6200EE), purple_700 (#3700B3) and white (#FFFFFF).
 ### Logo:
 Controller.png image from assets_studio.
+![App logo](/images/app_logo.png)
