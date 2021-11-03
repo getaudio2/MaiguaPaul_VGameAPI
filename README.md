@@ -36,5 +36,8 @@ This project is developed with android studio and java. I've used this extra cla
 ### Colors used:
 Purple_500 (#6200EE), purple_700 (#3700B3) and white (#FFFFFF).
 ### Logo:
-Controller.png image from assets_studio.
+Controller.png image from assets_studio.\
 ![App logo](/images/app_logo.png)
+### Errors:
+- The delete button from the home screen crashes the app due to the DB not created yet after the login. The DB is created after choosing another screen.
+- The delete button doesn't delete the default items in the list. This is because they're not inserted into the database.
