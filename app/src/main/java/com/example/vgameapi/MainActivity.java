@@ -13,6 +13,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SystemClock.sleep(200);
         setTheme(R.style.Theme_VGameAPI);
+
+        SharedPreferences loginPrefs = getSharedPreferences("SharedLoginP", Context.MODE_PRIVATE);
+        Intent intent = new Intent(this, MainMenu.class);
+
+        if (loginPrefs.getBoolean("login", false)) {
+            startActivity(intent);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -32,16 +41,20 @@ public class MainActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         EditText txtUsername = findViewById(R.id.txtUsername);
         EditText txtPassword = findViewById(R.id.txtPassword);
-
-        Intent intent = new Intent(this, MainMenu.class);
-
-        SharedPreferences loginPrefs = getSharedPreferences("SharedLoginP", Context.MODE_PRIVATE);
+        CheckBox checkRememberMe = findViewById(R.id.checkRememberMe);
 
         //If login button is clicked, lblLoginResult text will show if login succeeded or not
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //Login will succeed if the username and password equal to "admin"
                 if (txtUsername.getText().toString().equals("admin") && txtPassword.getText().toString().equals("admin")) {
+                    if (checkRememberMe.isChecked()) {
+                        SharedPreferences.Editor loginEditor = loginPrefs.edit();
+                        loginEditor.putString("username", txtUsername.getText().toString());
+                        loginEditor.putString("password", txtPassword.getText().toString());
+                        loginEditor.putBoolean("login", true);
+                        loginEditor.commit();
+                    }
                     Toast.makeText(getApplicationContext(), "Login OK", Toast.LENGTH_LONG).show();
                     startActivity(intent);
                 } else {
@@ -49,10 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        loginPrefs.edit().putString("email", "hola@email.com");
-        loginPrefs.edit().putBoolean("login", true);
-        loginPrefs.edit().commit();
 
     }
 }
