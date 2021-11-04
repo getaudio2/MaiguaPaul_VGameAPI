@@ -4,8 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainMenu.class);
 
+        SharedPreferences loginPrefs = getSharedPreferences("SharedLoginP", Context.MODE_PRIVATE);
+
         //If login button is clicked, lblLoginResult text will show if login succeeded or not
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -46,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        loginPrefs.edit().putString("email", "hola@email.com");
+        loginPrefs.edit().putBoolean("login", true);
+        loginPrefs.edit().commit();
 
     }
 }
