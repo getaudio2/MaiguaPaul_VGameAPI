@@ -1,5 +1,6 @@
 package com.example.vgameapi;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -75,11 +76,18 @@ public class FragmentHome extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         Button btnDelete = view.findViewById(R.id.btnEliminar);
+        Button btnOptions = view.findViewById(R.id.btnOptions);
 
         btnDelete.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 dbHelper.deleteDatabase(db);
                 Toast.makeText(getContext(), "DB games deleted OK", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnOptions.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new OptionsFragment()).commit();
             }
         });
 
