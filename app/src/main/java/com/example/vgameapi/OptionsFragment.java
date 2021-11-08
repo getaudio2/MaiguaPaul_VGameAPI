@@ -86,8 +86,9 @@ public class OptionsFragment extends Fragment {
         Button btnDeletePref = view.findViewById(R.id.btnDeletePref);
         Button btnEnglish = view.findViewById(R.id.btnEnglish);
         Button btnEspañol = view.findViewById(R.id.btnEspañol);
+        Button btnBack = view.findViewById(R.id.btnBack);
 
-        btnDeletePref.setOnClickListener(new View.OnClickListener(){
+                btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 SharedPreferences loginPrefs = getActivity().getSharedPreferences("SharedLoginP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = loginPrefs.edit();
@@ -104,6 +105,12 @@ public class OptionsFragment extends Fragment {
         btnEspañol.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 setAppLocale("");
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
             }
         });
 
