@@ -2,14 +2,20 @@ package com.example.vgameapi;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +23,19 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class OptionsFragment extends Fragment {
+
+    private void setAppLocale(String localeCode){
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration config = res.getConfiguration();
+
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR1){
+            config.setLocale(new Locale(localeCode.toLowerCase()));
+        } else {
+            config.locale = new Locale(localeCode.toLowerCase());
+        }
+        res.updateConfiguration(config, dm);
+    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,12 +84,26 @@ public class OptionsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         Button btnDeletePref = view.findViewById(R.id.btnDeletePref);
+        Button btnEnglish = view.findViewById(R.id.btnEnglish);
+        Button btnEspañol = view.findViewById(R.id.btnEspañol);
 
         btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 SharedPreferences loginPrefs = getActivity().getSharedPreferences("SharedLoginP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = loginPrefs.edit();
                 editor.clear().commit();
+            }
+        });
+
+        btnEnglish.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                setAppLocale("en");
+            }
+        });
+
+        btnEspañol.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                setAppLocale("");
             }
         });
 
