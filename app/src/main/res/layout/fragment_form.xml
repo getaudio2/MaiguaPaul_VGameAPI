@@ -12,16 +12,16 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="221dp"
-            android:layout_height="68dp"
-            android:text="Afegeix un joc"
+            android:layout_width="233dp"
+            android:layout_height="88dp"
+            android:text="Añade un juego"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             app:layout_constraintBottom_toTopOf="@+id/contactName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.629" />
+            app:layout_constraintVertical_bias="0.764" />
 
         <EditText
             android:id="@+id/contactName"
@@ -30,9 +30,9 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="292dp"
             android:ems="10"
-            android:textColor="@color/white"
-            android:hint="Name"
+            android:hint="Nombre"
             android:inputType="textPersonName"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
             android:id="@+id/saveContact"
             android:layout_width="201dp"
             android:layout_height="wrap_content"
-            android:text="Afegir"
+            android:text="Añadir"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
