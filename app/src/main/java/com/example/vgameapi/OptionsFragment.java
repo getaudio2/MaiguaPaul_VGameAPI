@@ -68,7 +68,9 @@ public class OptionsFragment extends Fragment {
 
         btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                //SharedPreferences loginPref = getSharedPreferences("", Context.MODE_PRIVATE);
+                SharedPreferences loginPrefs = getActivity().getSharedPreferences("SharedLoginP", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = loginPrefs.edit();
+                editor.clear().commit();
             }
         });
 
