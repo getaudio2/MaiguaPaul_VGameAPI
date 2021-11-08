@@ -5,4 +5,7 @@
     <string name="txtPassword">Constraseña</string>
     <string name="btnLogin">Hacer login</string>
     <string name="checkRememberMe">Recuérdame</string>
+    <string name="txtAddGame">Añade un juego</string>
+    <string name="txtEditGameName">Nombre</string>
+    <string name="btnAddGame">Añadir</string>
 </resources>

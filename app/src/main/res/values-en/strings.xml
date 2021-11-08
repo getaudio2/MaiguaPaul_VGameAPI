@@ -5,4 +5,7 @@
     <string name="txtPassword">Password</string>
     <string name="btnLogin">Login</string>
     <string name="checkRememberMe">Remember me</string>
+    <string name="txtAddGame">Add a game</string>
+    <string name="txtEditGameName">Name</string>
+    <string name="btnAddGame">Add</string>
 </resources>

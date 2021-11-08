@@ -17,14 +17,14 @@
             android:text="Añade un juego"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/contactName"
+            app:layout_constraintBottom_toTopOf="@+id/gameName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.764" />
 
         <EditText
-            android:id="@+id/contactName"
+            android:id="@+id/gameName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -38,14 +38,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/saveContact"
+            android:id="@+id/btnAddGame"
             android:layout_width="201dp"
             android:layout_height="wrap_content"
             android:text="Añadir"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contactName"
+            app:layout_constraintTop_toBottomOf="@+id/gameName"
             app:layout_constraintVertical_bias="0.28" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
