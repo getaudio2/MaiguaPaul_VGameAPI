@@ -100,7 +100,7 @@ public class OptionsFragment extends Fragment {
             public void onClick(View view) {
                 SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("lang", "en");
+                editor.putString("lang", "en").commit();
                 setAppLocale("en");
             }
         });
@@ -109,7 +109,7 @@ public class OptionsFragment extends Fragment {
             public void onClick(View view) {
                 SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("lang", "esp");
+                editor.putString("lang", "esp").commit();
                 setAppLocale("");
             }
         });

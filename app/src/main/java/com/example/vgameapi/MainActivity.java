@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
         SystemClock.sleep(200);
         setTheme(R.style.Theme_VGameAPI);
 
-        setAppLocale("");
-
         SharedPreferences prefs = getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         Intent intent = new Intent(this, MainMenu.class);
 
