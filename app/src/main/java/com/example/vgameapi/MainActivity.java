@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         Intent intent = new Intent(this, MainMenu.class);
 
+        setAppLocale("");
+
         if (prefs.getString("lang","").equals("en")) {
             setAppLocale("en");
         } else if (prefs.getString("lang","").equals("esp")) {

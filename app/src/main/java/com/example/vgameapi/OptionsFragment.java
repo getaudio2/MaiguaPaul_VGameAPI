@@ -88,11 +88,12 @@ public class OptionsFragment extends Fragment {
         Button btnEspañol = view.findViewById(R.id.btnEspañol);
         Button btnBack = view.findViewById(R.id.btnBack);
 
-                btnDeletePref.setOnClickListener(new View.OnClickListener(){
+        btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.clear().commit();
+                setAppLocale("");
             }
         });
 
