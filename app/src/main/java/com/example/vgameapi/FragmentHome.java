@@ -1,6 +1,5 @@
 package com.example.vgameapi;
 
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -75,7 +74,7 @@ public class FragmentHome extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button btnDelete = view.findViewById(R.id.btnEliminar);
+        Button btnDelete = view.findViewById(R.id.btnDelete);
         Button btnOptions = view.findViewById(R.id.btnOptions);
 
         btnDelete.setOnClickListener(new View.OnClickListener(){

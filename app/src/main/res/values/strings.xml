@@ -8,4 +8,7 @@
     <string name="txtAddGame">Añade un juego</string>
     <string name="txtEditGameName">Nombre</string>
     <string name="btnAddGame">Añadir</string>
+    <string name="txtDeleteGamesFromDB">Elimina los juegos de la DB</string>
+    <string name="btnDelete">Eliminar</string>
+    <string name="btnOptions">Opciones</string>
 </resources>
