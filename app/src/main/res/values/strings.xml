@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VGameAPI</string>
+    <!-- LOGIN -->
     <string name="txtUsername">Usuario</string>
     <string name="txtPassword">Constraseña</string>
     <string name="btnLogin">Hacer login</string>
     <string name="checkRememberMe">Recuérdame</string>
+    <!-- FORM -->
     <string name="txtAddGame">Añade un juego</string>
     <string name="txtEditGameName">Nombre</string>
     <string name="btnAddGame">Añadir</string>
+    <!-- HOME -->
     <string name="txtDeleteGamesFromDB">Elimina los juegos de la DB</string>
     <string name="btnDelete">Eliminar</string>
     <string name="btnOptions">Opciones</string>
+    <!-- OPTIONS -->
+    <string name="btnBack">Atrás</string>
+    <string name="btnDeletePref">Eliminar preferencias</string>
+    <string name="txtChangeLang">Cambiar idioma:</string>
 </resources>
