@@ -90,20 +90,26 @@ public class OptionsFragment extends Fragment {
 
                 btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                SharedPreferences loginPrefs = getActivity().getSharedPreferences("SharedLoginP", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = loginPrefs.edit();
+                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
                 editor.clear().commit();
             }
         });
 
         btnEnglish.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
+                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("lang", "en");
                 setAppLocale("en");
             }
         });
 
         btnEspañol.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
+                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("lang", "esp");
                 setAppLocale("");
             }
         });
