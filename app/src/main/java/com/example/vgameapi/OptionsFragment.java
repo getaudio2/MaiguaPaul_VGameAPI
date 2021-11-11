@@ -7,6 +7,9 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.DisplayMetrics;
@@ -16,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.Locale;
+import java.util.concurrent.Executor;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,10 @@ import java.util.Locale;
  * create an instance of this fragment.
  */
 public class OptionsFragment extends Fragment {
+
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
 
     private void setAppLocale(String localeCode){
         Resources res = getResources();
@@ -83,6 +91,34 @@ public class OptionsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
+        executor = ContextCompat.getMainExecutor(getContext());
+        biometricPrompt = new BiometricPrompt(this.getActivity(), executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                //Error
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                //Succeed
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                //Failed
+            }
+        });
+
+        promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Biometric login for my app")
+                .setSubtitle("Log in using your biometric credential")
+                .setNegativeButtonText("Use account password")
+                .build();
+
+
         Button btnDeletePref = view.findViewById(R.id.btnDeletePref);
         Button btnEnglish = view.findViewById(R.id.btnEnglish);
         Button btnEspañol = view.findViewById(R.id.btnEspañol);
@@ -90,6 +126,7 @@ public class OptionsFragment extends Fragment {
 
         btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
+                biometricPrompt.authenticate(promptInfo);
                 SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.clear().commit();
