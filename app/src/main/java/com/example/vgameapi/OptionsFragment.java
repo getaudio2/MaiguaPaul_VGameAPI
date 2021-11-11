@@ -180,9 +180,9 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
         boolean nightMode = prefs.getBoolean("nightMode", false);
 
         if (nightMode) {
-            nightDaySwitch.setChecked(false);
-        } else {
             nightDaySwitch.setChecked(true);
+        } else {
+            nightDaySwitch.setChecked(false);
         }
 
         nightDaySwitch.setOnClickListener(new View.OnClickListener(){
@@ -190,12 +190,12 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
                 if (nightDaySwitch.isChecked()) {
                     prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("nightMode", false).commit();
+                    editor.putBoolean("nightMode", true).commit();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
                     prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("nightMode", true).commit();
+                    editor.putBoolean("nightMode", false).commit();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             }

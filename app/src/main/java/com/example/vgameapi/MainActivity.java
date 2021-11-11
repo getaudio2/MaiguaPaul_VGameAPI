@@ -2,6 +2,7 @@ package com.example.vgameapi;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
@@ -48,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         Intent intent = new Intent(this, MainMenu.class);
+
+        boolean nightMode = prefs.getBoolean("nightMode", false);
+        if (nightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         setAppLocale("");
 
