@@ -75,7 +75,11 @@ public class FormFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_form, container, false);
 
+        Bundle bundle = new Bundle();
+        setArguments(bundle);
+
         EditText name = view.findViewById(R.id.gameName);
+        EditText desc = view.findViewById(R.id.gameDesc);
         Button buttonSave = view.findViewById(R.id.btnAddGame);
 
         buttonSave.setOnClickListener(new View.OnClickListener(){

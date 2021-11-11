@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.vgameapi.DB.GamesDBHelper;
 import com.example.vgameapi.Model.Game;
@@ -105,6 +106,14 @@ public class ListFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity().getApplicationContext(), array_noms.get
+                        (recyclerView.getChildAdapterPosition(view)), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
