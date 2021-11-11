@@ -16,7 +16,9 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import java.util.Locale;
 import java.util.concurrent.Executor;
@@ -91,6 +93,17 @@ public class OptionsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
+        // SPINNER
+        Spinner spinner = (Spinner) view.findViewById(R.id.lang_spinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.lang_array, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+
+        // BIOMETRIC METHODS
         executor = ContextCompat.getMainExecutor(getContext());
         biometricPrompt = new BiometricPrompt(this.getActivity(), executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
@@ -115,6 +128,7 @@ public class OptionsFragment extends Fragment {
             }
         });
 
+        // PROMPT INFO FOR THE BIOMETRIC
         promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Biometric login for my app")
                 .setSubtitle("Log in using your biometric credential")
@@ -122,11 +136,13 @@ public class OptionsFragment extends Fragment {
                 .build();
 
 
+        // FRAGMENT BUTTONS
         Button btnDeletePref = view.findViewById(R.id.btnDeletePref);
         Button btnEnglish = view.findViewById(R.id.btnEnglish);
         Button btnEspañol = view.findViewById(R.id.btnEspañol);
         Button btnBack = view.findViewById(R.id.btnBack);
 
+        // BUTTONS ACTIONS
         btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 biometricPrompt.authenticate(promptInfo);

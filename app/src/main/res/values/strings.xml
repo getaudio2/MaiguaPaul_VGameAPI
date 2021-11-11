@@ -18,4 +18,9 @@
     <string name="btnBack">Atrás</string>
     <string name="btnDeletePref">Eliminar preferencias</string>
     <string name="txtChangeLang">Cambiar idioma:</string>
+    <!-- LANGUAGES -->
+    <string-array name="lang_array">
+        <item>English</item>
+        <item>Español</item>
+    </string-array>
 </resources>

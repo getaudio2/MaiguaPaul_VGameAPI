@@ -18,4 +18,9 @@
     <string name="btnBack">Back</string>
     <string name="btnDeletePref">Delete preferences</string>
     <string name="txtChangeLang">Change language:</string>
+    <!-- LANGUAGES -->
+    <string-array name="lang_array">
+        <item>English</item>
+        <item>Español</item>
+    </string-array>
 </resources>
