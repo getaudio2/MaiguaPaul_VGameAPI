@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import java.util.Locale;
 import java.util.concurrent.Executor;
@@ -158,14 +159,25 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
                 .build();
 
 
-        // FRAGMENT BUTTONS
+        // BUTTONS
         Button btnDeletePref = view.findViewById(R.id.btnDeletePref);
         Button btnBack = view.findViewById(R.id.btnBack);
+        Switch nightDaySwitch = view.findViewById(R.id.nightDaySwitch);
 
         // BUTTONS ACTIONS
         btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 biometricPrompt.authenticate(promptInfo);
+            }
+        });
+
+        nightDaySwitch.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                if (nightDaySwitch.isChecked()) {
+
+                } else {
+
+                }
             }
         });
 
