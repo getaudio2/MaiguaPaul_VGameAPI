@@ -102,7 +102,10 @@ public class OptionsFragment extends Fragment {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                //Succeed
+                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear().commit();
+                setAppLocale("");
             }
 
             @Override
@@ -127,10 +130,6 @@ public class OptionsFragment extends Fragment {
         btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 biometricPrompt.authenticate(promptInfo);
-                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.clear().commit();
-                setAppLocale("");
             }
         });
 
