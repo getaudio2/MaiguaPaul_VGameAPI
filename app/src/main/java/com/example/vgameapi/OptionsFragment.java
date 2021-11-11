@@ -16,6 +16,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -28,7 +29,27 @@ import java.util.concurrent.Executor;
  * Use the {@link OptionsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OptionsFragment extends Fragment {
+public class OptionsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+
+    // ON ITEM SELECTED LISTENER METHODS
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        if (pos == 0) {
+            SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("lang", "en").commit();
+            setAppLocale("en");
+        } else if (pos == 1) {
+            SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("lang", "esp").commit();
+            setAppLocale("");
+        }
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // OnNothingSelected
+    }
 
     private Executor executor;
     private BiometricPrompt biometricPrompt;
@@ -102,6 +123,7 @@ public class OptionsFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
         // BIOMETRIC METHODS
         executor = ContextCompat.getMainExecutor(getContext());
@@ -138,32 +160,12 @@ public class OptionsFragment extends Fragment {
 
         // FRAGMENT BUTTONS
         Button btnDeletePref = view.findViewById(R.id.btnDeletePref);
-        Button btnEnglish = view.findViewById(R.id.btnEnglish);
-        Button btnEspañol = view.findViewById(R.id.btnEspañol);
         Button btnBack = view.findViewById(R.id.btnBack);
 
         // BUTTONS ACTIONS
         btnDeletePref.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 biometricPrompt.authenticate(promptInfo);
-            }
-        });
-
-        btnEnglish.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("lang", "en").commit();
-                setAppLocale("en");
-            }
-        });
-
-        btnEspañol.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("lang", "esp").commit();
-                setAppLocale("");
             }
         });
 
