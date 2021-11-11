@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -32,16 +33,19 @@ import java.util.concurrent.Executor;
  */
 public class OptionsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    // SHARED PREFERENCES
+    SharedPreferences prefs;
+
     // ON ITEM SELECTED LISTENER METHODS
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         if (pos == 0) {
-            SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+            prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("lang", "en").commit();
             setAppLocale("en");
         } else if (pos == 1) {
-            SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+            prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("lang", "esp").commit();
             setAppLocale("");
@@ -138,7 +142,7 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                SharedPreferences prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.clear().commit();
                 setAppLocale("");
@@ -171,12 +175,28 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
             }
         });
 
+        // NIGHT MODE SWITCH
+        prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+        boolean nightMode = prefs.getBoolean("nightMode", false);
+
+        if (nightMode) {
+            nightDaySwitch.setChecked(false);
+        } else {
+            nightDaySwitch.setChecked(true);
+        }
+
         nightDaySwitch.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 if (nightDaySwitch.isChecked()) {
-
+                    prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("nightMode", false).commit();
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
-
+                    prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("nightMode", true).commit();
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             }
         });
