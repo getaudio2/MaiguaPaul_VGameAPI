@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.vgameapi.DB.GamesDBHelper;
 import com.example.vgameapi.Model.Game;
@@ -110,8 +109,12 @@ public class ListFragment extends Fragment {
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity().getApplicationContext(), array_noms.get
-                        (recyclerView.getChildAdapterPosition(view)), Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Game", array_noms.get
+                        (recyclerView.getChildAdapterPosition(view)));
+                Fragment detailFragment = new DetailFragment();
+                detailFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
             }
         });
 
