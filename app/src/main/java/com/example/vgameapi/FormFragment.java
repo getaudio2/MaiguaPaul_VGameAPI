@@ -21,7 +21,7 @@ import com.example.vgameapi.Model.Game;
  * create an instance of this fragment.
  */
 public class FormFragment extends Fragment {
-
+    // DB AND DBHELPER
     private GamesDBHelper dbHelper;
     private SQLiteDatabase db;
 
@@ -34,6 +34,7 @@ public class FormFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    // CONSTRUCTORS
     public FormFragment() {
         // Required empty public constructor
     }
