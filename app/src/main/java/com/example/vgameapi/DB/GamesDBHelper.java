@@ -67,7 +67,8 @@ public class GamesDBHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Game game = new Game(cursor.getString(cursor.getColumnIndex("name")));
+                Game game = new Game(cursor.getString(cursor.getColumnIndex("name")),
+                                     cursor.getString(cursor.getColumnIndex("description")));
                 games.add(game);
             } while (cursor.moveToNext());
         }

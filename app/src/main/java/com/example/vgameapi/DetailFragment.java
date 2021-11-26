@@ -64,12 +64,13 @@ public class DetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         // Inflate the layout for this fragment
         Bundle bundle = getArguments();
-        Game game = (Game) bundle.getSerializable("Game");
+        String gameName = (String) bundle.getSerializable("GameName");
+        String gameDesc = (String) bundle.getSerializable("GameDesc");
 
         TextView gameNameDetail = view.findViewById(R.id.gameNameDetail);
         TextView gameDescDetail = view.findViewById(R.id.gameDescDetail);
-        gameNameDetail.setText(game.getNom());
-        gameDescDetail.setText(game.getDesc());
+        gameNameDetail.setText(gameName);
+        gameDescDetail.setText(gameDesc);
 
         return view;
     }

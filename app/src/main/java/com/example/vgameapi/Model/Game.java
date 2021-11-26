@@ -5,9 +5,6 @@ public class Game {
     public String nom;
     public String desc;
 
-    public Game(String nom) {
-        this.nom = nom;
-    }
     public Game(String nom, String desc) {
         this.nom = nom;
         this.desc = desc;

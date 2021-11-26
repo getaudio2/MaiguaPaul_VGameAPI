@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,11 +112,9 @@ public class ListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                String gameName = array_noms.get
-                        (recyclerView.getChildAdapterPosition(view));
-
                 Game game = games.get(recyclerView.getChildAdapterPosition(view));
-                bundle.putSerializable("Game", (Serializable) game);
+                bundle.putSerializable("GameName", game.getNom());
+                bundle.putSerializable("GameDesc", game.getDesc());
                 Fragment detailFragment = new DetailFragment();
                 detailFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
