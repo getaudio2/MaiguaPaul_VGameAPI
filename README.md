@@ -3,8 +3,9 @@ This project is about the development of an android app named "VGameAPI", which 
 ## Tasks
 In my project you'll be able to:
 * Login
-* Add elements (game genres names) to a local database
+* Add elements (game genres names and descriptions) to a local database
 * See all the database elements inside a list
+* See the detailed information of each element in a separate fragment
 * Delete all the elements from the database
 ## Screenshots
 ### Login
@@ -29,6 +30,8 @@ This project is developed with android studio and java. I've used this extra cla
 * Fragment Manager: to add/access the different fragments for each task.
 * Recycler View: to show the items in the DB ordered in a list.
 * Toast: to show a text message confirming that the task has been performed correctly.
+* Shared Preferences: to save info inside the app so it doesn't get deleted after closing the app.
+* Bundle: to share info (objects) between fragments/activities.
 ## Extra information
 ### Access:
 * Username: admin
@@ -50,4 +53,7 @@ Controller.png image from assets_studio.\
 - [x] Recycler list
 - [x] Database methods
 - [x] Delete all data + dialog
-- [x] Screens colors with Theme.xml 
+- [x] Screens colors with Theme.xml
+- [x] Multilanguage 
+- [x] Shared Preferences & Bundle
+- [x] Detail Fragment
