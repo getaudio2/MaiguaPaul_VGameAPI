@@ -8,6 +8,6 @@ public class GamesContract {
         public static final String TABLE_NAME ="games";
         public static final String ID = "id";
         public static final String COLUMN_NAME_TITLE = "name";
-        public static final String COLUMN_DESC_TITLE = "desc";
+        public static final String COLUMN_DESC_TITLE = "description";
     }
 }
