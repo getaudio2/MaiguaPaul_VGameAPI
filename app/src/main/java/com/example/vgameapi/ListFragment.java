@@ -111,12 +111,17 @@ public class ListFragment extends Fragment {
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //CREATE BUNDLE
                 Bundle bundle = new Bundle();
+                //Create game object to get its values
                 Game game = games.get(recyclerView.getChildAdapterPosition(view));
+                //Put game values in bundle
                 bundle.putSerializable("GameName", game.getNom());
                 bundle.putSerializable("GameDesc", game.getDesc());
                 Fragment detailFragment = new DetailFragment();
+                //Set bundle arguments in Detail Fragment
                 detailFragment.setArguments(bundle);
+                //Go to Detail Fragment
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
             }
         });

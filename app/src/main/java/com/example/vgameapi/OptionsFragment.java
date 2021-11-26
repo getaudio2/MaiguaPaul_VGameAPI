@@ -39,6 +39,7 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
     // ON ITEM SELECTED LISTENER METHODS
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
+        // SAVES LANGUAGE IN SHARED PREFERENCES
         if (pos == 0) {
             prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
@@ -122,6 +123,7 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
         // SPINNER
         Spinner spinner = (Spinner) view.findViewById(R.id.lang_spinner);
 
+        // USES THE LANG_ARRAY IN STRINGS.XML TO CHANGE THE APP LANGUAGE
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.lang_array, android.R.layout.simple_spinner_item);
 
@@ -142,6 +144,7 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
+                //AFTER CONFIRMING USING THE BIOMETRIC, ALL THE SHARED PREFERENCES ARE DELETED
                 prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.clear().commit();
@@ -179,12 +182,14 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
         prefs = getActivity().getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         boolean nightMode = prefs.getBoolean("nightMode", false);
 
+        // FOR AESTHETIC PURPOSES
         if (nightMode) {
             nightDaySwitch.setChecked(true);
         } else {
             nightDaySwitch.setChecked(false);
         }
 
+        // SAVES THE NIGHT/DAY STATE IN THE SHARED PREFERENCES
         nightDaySwitch.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 if (nightDaySwitch.isChecked()) {
@@ -201,6 +206,7 @@ public class OptionsFragment extends Fragment implements AdapterView.OnItemSelec
             }
         });
 
+        //BACK BUTTON TO RETURN TO HOME FRAGMENT
         btnBack.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();

@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         Intent intent = new Intent(this, MainMenu.class);
 
+        // SETS NIGHT/DAY MODE BASED ON SHARED PREFERENCES
         boolean nightMode = prefs.getBoolean("nightMode", false);
         if (nightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -57,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
+        //DEFAULT LANG
         setAppLocale("");
 
+        //SETS LANGUAGE BASED ON SHARED PREFERENCES
         if (prefs.getString("lang","").equals("en")) {
             setAppLocale("en");
         } else if (prefs.getString("lang","").equals("esp")) {

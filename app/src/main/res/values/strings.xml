@@ -9,6 +9,7 @@
     <!-- FORM -->
     <string name="txtAddGame">Añade un juego</string>
     <string name="txtEditGameName">Nombre</string>
+    <string name="txtEditGameDesc">Descripción</string>
     <string name="btnAddGame">Añadir</string>
     <!-- HOME -->
     <string name="txtDeleteGamesFromDB">Elimina los juegos de la DB</string>
@@ -24,5 +25,4 @@
         <item>Español</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

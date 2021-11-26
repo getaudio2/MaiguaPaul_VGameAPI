@@ -63,6 +63,8 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         // Inflate the layout for this fragment
+
+        //BUNDLE RECEIVING FROM LISTFRAGMENT BUNDLE
         Bundle bundle = getArguments();
         String gameName = (String) bundle.getSerializable("GameName");
         String gameDesc = (String) bundle.getSerializable("GameDesc");

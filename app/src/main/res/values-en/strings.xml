@@ -9,6 +9,7 @@
     <!-- FORM -->
     <string name="txtAddGame">Add a game</string>
     <string name="txtEditGameName">Name</string>
+    <string name="txtEditGameDesc">Description</string>
     <string name="btnAddGame">Add</string>
     <!-- HOME -->
     <string name="txtDeleteGamesFromDB">Delete games from DB</string>
