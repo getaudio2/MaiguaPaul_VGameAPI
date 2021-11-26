@@ -85,7 +85,7 @@ public class FormFragment extends Fragment {
 
         buttonSave.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                Game game = new Game(name.getText().toString());
+                Game game = new Game(name.getText().toString(), desc.getText().toString());
                 dbHelper.insertGame(db, game);
                 Toast.makeText(getContext(), "Game added OK", Toast.LENGTH_LONG).show();
             }

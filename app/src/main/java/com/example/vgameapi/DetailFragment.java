@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.vgameapi.Model.Game;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DetailFragment#newInstance} factory method to
@@ -62,10 +64,12 @@ public class DetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         // Inflate the layout for this fragment
         Bundle bundle = getArguments();
-        String nom = (String) bundle.getSerializable("Game");
+        Game game = (Game) bundle.getSerializable("Game");
 
         TextView gameNameDetail = view.findViewById(R.id.gameNameDetail);
-        gameNameDetail.setText(nom);
+        TextView gameDescDetail = view.findViewById(R.id.gameDescDetail);
+        gameNameDetail.setText(game.getNom());
+        gameDescDetail.setText(game.getDesc());
 
         return view;
     }

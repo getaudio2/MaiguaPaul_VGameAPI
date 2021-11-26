@@ -18,7 +18,7 @@ public class GamesDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "contacts.db";
 
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + GamesEntry.TABLE_NAME + "(" + GamesEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GamesEntry.COLUMN_NAME_TITLE + " TEXT)";
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + GamesEntry.TABLE_NAME + "(" + GamesEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GamesEntry.COLUMN_NAME_TITLE + GamesEntry.COLUMN_DESC_TITLE + " TEXT)";
 
     public GamesDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,6 +42,7 @@ public class GamesDBHelper extends SQLiteOpenHelper {
 
             //Insert the incidence getting all values
             values.put(GamesEntry.COLUMN_NAME_TITLE, g.getNom());
+            values.put(GamesEntry.COLUMN_DESC_TITLE, g.getDesc());
 
             db.insert(GamesEntry.TABLE_NAME, null, values);
         }else{

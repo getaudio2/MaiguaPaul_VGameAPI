@@ -89,7 +89,7 @@ public class ListFragment extends Fragment {
             array_noms.add(game.getNom());
         }
 
-        array_noms.add("FPS ('Shooter en primera persona')");
+        /*array_noms.add("FPS ('Shooter en primera persona')");
         array_noms.add("Puzzle");
         array_noms.add("Visual Novel");
         array_noms.add("2D Fighter");
@@ -98,7 +98,7 @@ public class ListFragment extends Fragment {
         array_noms.add("Adventure");
         array_noms.add("Platformer");
         array_noms.add("Sandbox");
-        array_noms.add("MMORPG");
+        array_noms.add("MMORPG");*/
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(array_noms);
@@ -110,8 +110,9 @@ public class ListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("Game", array_noms.get
-                        (recyclerView.getChildAdapterPosition(view)));
+                String gameName = array_noms.get
+                        (recyclerView.getChildAdapterPosition(view));
+                bundle.putSerializable("Game", gameName);
                 Fragment detailFragment = new DetailFragment();
                 detailFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
