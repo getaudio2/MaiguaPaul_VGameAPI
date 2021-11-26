@@ -24,6 +24,12 @@ The list screen displays the list of items with the elements from the database.\
 ### Add screen
 The add screen has an EditText to enter the name of a game genre and add it to the DB.\
 ![Add screen](/images/add_screen.png)
+### Options screen
+The options screen allows the user to change settings: Night/Day Mode, Language, Delete Preferences.\
+![Options screen](/images/options_screen.png)
+### Detail screen
+The detail screen shows the details of the object from the recycler view such as a description.\
+![Detail screen](images/detail_screen.png)
 ## Technologies
 This project is developed with android studio and java. I've used this extra classes:
 * SQLiteDatabase: for the local storage.
