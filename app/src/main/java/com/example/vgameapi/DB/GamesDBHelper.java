@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GamesDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "games.db";
+    public static final String DATABASE_NAME = "videogames.db";
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + GamesEntry.TABLE_NAME + " (" +

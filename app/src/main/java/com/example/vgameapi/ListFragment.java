@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.vgameapi.DB.GamesDBHelper;
 import com.example.vgameapi.Model.Game;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,7 +113,9 @@ public class ListFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 String gameName = array_noms.get
                         (recyclerView.getChildAdapterPosition(view));
-                bundle.putSerializable("Game", gameName);
+
+                Game game = games.get(recyclerView.getChildAdapterPosition(view));
+                bundle.putSerializable("Game", (Serializable) game);
                 Fragment detailFragment = new DetailFragment();
                 detailFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
